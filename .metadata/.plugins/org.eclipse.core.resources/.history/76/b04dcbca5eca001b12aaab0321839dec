@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans  
+http://www.springframework.org/schema/beans/spring-beans.xsd"
+>
+	
+	<!-- class에는 객체의 전체 경로, id는 고유하게 찾아쓸 수 있는 객체 이름 -->
+	<bean id="test" class="ex01.SpringTest"></bean>
+
+
+</beans>

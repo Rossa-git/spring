@@ -1,0 +1,22 @@
+package ex01;
+
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+public class MainClass {
+	
+	public static void main(String[] args) {
+
+//		SpringTest t = new SpringTest();
+//		t.test();
+		
+//		ioc컨테이너의 형태
+		GenericXmlApplicationContext ctx = 
+				new GenericXmlApplicationContext("application-context.xml");
+		
+		SpringTest t = (SpringTest)ctx.getBean("test");
+		
+		t.test();
+		
+	}
+	
+}

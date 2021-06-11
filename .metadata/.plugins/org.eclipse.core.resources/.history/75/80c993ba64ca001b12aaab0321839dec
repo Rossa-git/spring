@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans  
+http://www.springframework.org/schema/beans/spring-beans.xsd"
+>
+	
+	<!-- class에는 객체의 전체 경로, id는 고유하게 찾아쓸 수 있는 객체 이름 -->
+	<bean id="test" class="ex01.SpringTest"></bean>
+
+	<!-- DI 생성자 주입 방법 -->
+	<bean id="chef" class="ex02.Chef"></bean>
+	
+	<bean id="hotel" class="ex02.Hotel">
+		<constructor-arg ref="chef"/>
+	</bean>
+	
+	<!-- DI Setter 주입 -->
+	<bean id="dev" class="ex03.DatabaseDev">
+		<property name="url" value="데이터베이스주소"/>
+		<property name="uid" value="데이터베이스아이디"/>
+		<property name="upw" value="데이터베이스비밀번호"/>
+	</bean>
+</beans>

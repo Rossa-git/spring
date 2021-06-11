@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans  
+http://www.springframework.org/schema/beans/spring-beans.xsd"
+>
+	
+	<!-- class에는 객체의 전체 경로, id는 고유하게 찾아쓸 수 있는 객체 이름 -->
+	<bean id="test" class="ex01.SpringTest" scope = "prototype"></bean>
+
+	<!-- ex02 -->
+	<!-- DI 생성자 주입 방법 -->
+	<bean id="chef" class="ex02.Chef"></bean>
+	
+	<bean id="hotel" class="ex02.Hotel">
+		<constructor-arg ref="chef"/>
+	</bean>
+	
+	<!-- ex03 -->
+	<!-- DI Setter 주입 -->
+	<bean id="dev" class="ex03.DatabaseDev">
+		<property name="url" value="데이터베이스주소"/>
+		<property name="uid" value="데이터베이스아이디"/>
+		<property name="upw" value="데이터베이스비밀번호"/>
+	</bean>
+	
+	<!-- bean(객체)을 주입해줘야하는 상황에서는 value가 아니라 ref -->
+	<bean id="dao" class="ex03.MemberDAO">
+		<property name="dev" ref="dev"/>
+	</bean>
+	
+	
+	<!-- ex04 -->
+	<bean id="battery1" class="ex04.Battery1"></bean>
+	<bean id="battery2" class="ex04.Battery2"></bean>
+	
+	<bean id="car" class="ex04.Car">
+		<constructor-arg ref="battery1"/>
+	</bean>
+	<bean id="airplane" class="ex04.Airplane">
+		<property name="battery" ref="battery2"></property>
+	</bean>
+	
+</beans>

@@ -1,0 +1,15 @@
+package ex02;
+
+public class MainClass {
+
+	public static void main(String[] args) {
+//		Chef c = new Chef();
+//		Hotel h = new Hotel(c);
+		
+		
+//		DI 설정 : application-context.xml에서 설정
+//		Hotel h = new Hotel(new Chef());
+		
+	}
+	
+}

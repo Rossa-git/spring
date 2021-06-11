@@ -1,0 +1,10 @@
+package ex05;
+
+public class Customer {
+	
+	//멤버변수 컬렉션
+	private List<String> lists;
+	private List<MemberVO> vo;
+	private Map<String, Object> maps;
+	
+}
