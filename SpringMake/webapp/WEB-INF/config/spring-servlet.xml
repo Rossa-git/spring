@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans  
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!-- 핸들러 어댑터, 핸들러 맵핑, 스프링의 다양한 어노테이션 기능 활성화 -->
+	<mvc:annotation-driven/>
+	
+	<!-- 정적자원 맵핑 경로 설정 css, js, html파일은 직접 경로로 맵핑 -->
+	<!-- abc** : abc로 시작하는 모든 대상 -->
+	<mvc:resources location="/resource/" mapping="/resource/**"/>
+
+	<!-- 뷰리졸버 - controller에서 돌아온 문자열 경로로 최종적으로 합성해주는 역할 -->
+	<!-- 
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	 -->
+
+	<!-- 컨트롤러 패키지를 읽어서 전부 bean으로 생성 -->
+	<context:component-scan base-package="com.simple.controller"/>
+</beans>
+	
