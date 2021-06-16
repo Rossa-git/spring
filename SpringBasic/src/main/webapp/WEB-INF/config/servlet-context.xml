@@ -21,8 +21,17 @@
 	
 	
 	<!-- 해당 패키지를 읽어서 @Contorller가 붙어있는 클래스를 bean(객체)로 생성 -->
+	<context:component-scan base-package="com.simple.*"/>
+	<!-- 
 	<context:component-scan base-package="com.simple.controller" />
+	<context:component-scan base-package="com.*.service"/>
+	 -->
+	<!-- service는 @Service 어노테이션에 의해 스캔할 때 같이 등록된다. -->
+	<!-- com.*.service 는 com으로 시작하고 service로 끝나는 패키지를 전부 스캔한다 -->
 	
-	
+	<!-- service를 bean으로 생성 -->
+	<!-- 
+	<beans:bean id="scoreService" class="com.simple.service.ScoreServiceImpl"></beans:bean>
+	 -->
 	
 </beans:beans>

@@ -1,10 +1,11 @@
 package com.simple.controller;
 
-import java.util.ArrayList;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
+import com.simple.command.ReqVO;
 
 @Controller
 @RequestMapping("/request") //클래스의 requestMapping은 메서드의 요청경로를 묶어서 사용
@@ -77,19 +78,47 @@ public class RequestController {
 	 * 1) required - 해당 파라미터가 필수가 아닌 경우 false(기본값 true)
 	 * 2) defaultValue - required 지정(false)시 기본값 
 	 */
+//	@RequestMapping("/param")
+//	public String param(
+//			@RequestParam("id") String id,
+//			@RequestParam("pw") String pw,
+//			@RequestParam("name") String name,
+//			@RequestParam(value = "inter", required = false, defaultValue = "") ArrayList<String> inter
+//			) {
+//		
+//		System.out.println(id);
+//		System.out.println(pw);
+//		System.out.println(name);
+//		System.out.println(inter.toString());
+//		
+//		return "request/req_ex02_result";
+//	}
+	
+	
+	//3. 커맨드객체를 이용하기
 	@RequestMapping("/param")
-	public String param(
-			@RequestParam("id") String id,
-			@RequestParam("pw") String pw,
-			@RequestParam("name") String name,
-			@RequestParam(value = "inter", required = false, defaultValue = "") ArrayList<String> inter
-			) {
+	public String param(ReqVO vo) {
 		
-		System.out.println(id);
-		System.out.println(pw);
-		System.out.println(name);
-		System.out.println(inter.toString());
+		System.out.println(vo.toString());
 		
 		return "request/req_ex02_result";
+	}
+	
+	
+	//---------------req_quiz01
+	@RequestMapping("/req_quiz01")
+	public void req_quiz01() {
+		
+	}
+	
+	@RequestMapping("/login")
+	public String login(HttpServletRequest request) {
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+		if(id.equals("abc123") && pw.equals("xxx123")) {
+			return "request/req_quiz01_ok.jsp";
+		} else {
+			return "req_quiz01.no.jsp";
+		}
 	}
 }
