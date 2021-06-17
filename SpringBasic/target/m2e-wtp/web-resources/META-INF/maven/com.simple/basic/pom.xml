@@ -123,7 +123,40 @@
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 			<scope>test</scope>
-		</dependency>        
+		</dependency>
+
+		<!-- oracle connector -->
+		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc8</artifactId>
+			<version>19.7.0.0</version>
+		</dependency>
+	
+		<!-- hikari connection pool -->
+		<dependency>
+			<groupId>com.zaxxer</groupId>
+			<artifactId>HikariCP</artifactId>
+			<version>3.3.1</version>
+		</dependency>
+
+
+		<!-- spring jdbc, 버전은 스프링 버전을 따라갈 수 있도록 한다-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+	
+
+		<!-- spring test, 스프링 테스트 환경 지원. jUnit의 버전이 너무 낮으면 사용할 수 없다(jUnit단위테스트 4.12이상 버전과 함께사용) -->	
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${org.springframework-version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+	
 	</dependencies>
 	
 	

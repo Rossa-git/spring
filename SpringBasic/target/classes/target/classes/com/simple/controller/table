@@ -1,0 +1,8 @@
+-- 계정생성
+create user spring identified by spring;
+
+-- 권한 부여
+grant resource, connect to spring;
+
+-- 테이블스페이스 지정
+alter user spring default tablespace users quota unlimited on users;
