@@ -28,5 +28,12 @@ public class ScoreDAOImpl implements ScoreDAO{
 		
 		return list;
 	}
+
+	@Override
+	public void delete(int num) {
+		
+		list.remove(num);
+		
+	}
 	
 }

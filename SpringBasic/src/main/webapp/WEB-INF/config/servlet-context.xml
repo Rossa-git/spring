@@ -22,6 +22,7 @@
 	
 	<!-- 해당 패키지를 읽어서 @Contorller가 붙어있는 클래스를 bean(객체)로 생성 -->
 	<context:component-scan base-package="com.simple.*"/>
+	<!-- exclude-filter 하위 요소를 이용하면 스캔에서 제외된다 -->
 	<!-- 
 	<context:component-scan base-package="com.simple.controller" />
 	<context:component-scan base-package="com.*.service"/>
