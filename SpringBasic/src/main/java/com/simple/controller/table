@@ -17,3 +17,15 @@ create table T_SCORE(
 );
 
 create sequence t_score_seq increment by 1 start with 1 nocache;
+
+
+
+-- T_BOARD
+create table T_BOARD(
+    bno number(10) primary key,
+    name varchar2(20),
+    title varchar2(20),
+    content varchar2(20)
+);
+
+create sequence t_board_seq increment by 1 start with 1 nocache;

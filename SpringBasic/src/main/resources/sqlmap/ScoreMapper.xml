@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.simple.mapper.ScoreMapper">
+  <!--
+  		1. 단일값의 경우, 매개변수의 명으로 전달
+  		2. 다중값의 경우 vo객체의 setter로 전달
+  		3. @param으로 전달
+  		
+  		? -> #{세터이름}
+  		? -> #{매개변수 이름} 
+  -->
+  	<insert id="regist">
+  		insert into t_score values(t_score_seq.nextval, #{name}, #{kor}, #{eng})
+  	</insert>
+  	
+  	
+  	<!--
+  		단일값 같은 경우 resultType에 String, Integer 
+  		select문에서 반환받아서 가져갈 vo의 위치를 resultType에 적는다 
+  	-->
+  	<select id="getList" resultType="ScoreVO">
+  		select * from t_score
+  	</select>
+  	
+  	
+  	
+  	<delete id="delete">
+  		delete from t_score where bno=#{num}
+  	</delete>
+  </mapper>

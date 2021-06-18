@@ -31,7 +31,7 @@
 			<td>${v.title }</td>
 			<td>${v.content }</td>
 		
-			<td><input type="button" onclick="location.href='boardDelete?num=${idx.index}'" value="삭제"></td>
+			<td><input type="button" onclick="location.href='boardDelete?num=${v.bno}'" value="삭제"></td>
 		</tr>
 		</c:forEach>
 

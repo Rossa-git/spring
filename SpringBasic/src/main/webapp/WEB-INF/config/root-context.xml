@@ -2,11 +2,11 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
 	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	<!-- 1. namespace에서 jdbc체크 -->
-	<!-- Root Context: defines shared resources visible to all other web components -->
-		
 	
 	<!-- 데이터베이스 외부 설정파일을 읽어오는 빈 -->	
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -24,7 +24,22 @@
 	
 	
 	<!-- 커넥션 풀 설정 -->
-	<bean class="com.zaxxer.hikari.HikariDataSource">
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
 		<constructor-arg ref="hikariConfig"/>
 	</bean>
+	
+	
+	<!-- 마이바티스 연결 -->
+	<!-- namespace체크 , sqlSessionFactoryBean객체를 사용, scan명령 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<!-- xml 매퍼 위치 지정 -->
+		<property name="mapperLocations" value="classpath:/sqlmap/*.xml"/>
+		<property name="configLocation" value="classpath:/mybatis-config/mybatis-config.xml"/>
+	</bean>
+	
+	<!-- 마이바티스의 인터페이스를 읽어서 사용할 수 있도록 처리 -->
+	<mybatis-spring:scan base-package="com.simple.test.mapper"/>
+	<mybatis-spring:scan base-package="com.simple.mapper"/>
+
 </beans>
